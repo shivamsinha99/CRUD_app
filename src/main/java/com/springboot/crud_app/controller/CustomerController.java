@@ -30,4 +30,16 @@ public class CustomerController {
                 .orElseThrow(() -> new ResourceNotFoundException("Customer with ID " + id + " Does not Exist."));
         return ResponseEntity.ok(customer);
     }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Customer> updateCustomer(@PathVariable long id,@RequestBody Customer customerDetails) {
+        Customer updateCustomer = customerRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer with ID " + id + " Does not Exist."));
+        updateCustomer.setFirstName(customerDetails.getFirstName());
+        updateCustomer.setLastName(customerDetails.getLastName());
+        updateCustomer.setEmailId(customerDetails.getEmailId());
+
+        customerRepository.save(updateCustomer);
+        return ResponseEntity.ok(updateCustomer);
+    }
 }
