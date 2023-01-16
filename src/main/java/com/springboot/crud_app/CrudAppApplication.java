@@ -8,26 +8,26 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CrudAppApplication implements CommandLineRunner {
+public class CrudAppApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CrudAppApplication.class, args);
     }
 
-    @Autowired
-    private CustomerRepository customerRepository;
-    @Override
-    public void run(String... args) throws Exception {
-        Customer customer = new Customer();
-        customer.setFirstName("Shivam");
-        customer.setLastName("Sinha");
-        customer.setEmailId("shivamsinha@airasia.com");
-        customerRepository.save(customer);
-
-        Customer customer_1 = new Customer();
-        customer_1.setFirstName("Nilay");
-        customer_1.setLastName("Kumar");
-        customer_1.setEmailId("nilaynilay@airasia.com");
-        customerRepository.save(customer_1);
-    }
+//    @Autowired
+//    private CustomerRepository customerRepository;
+//    @Override
+//    public void run(String... args) throws Exception {
+//        Customer customer = new Customer();
+//        customer.setFirstName("Shivam");
+//        customer.setLastName("Sinha");
+//        customer.setEmailId("shivamsinha@airasia.com");
+//        customerRepository.save(customer);
+//
+//        Customer customer_1 = new Customer();
+//        customer_1.setFirstName("Nilay");
+//        customer_1.setLastName("Kumar");
+//        customer_1.setEmailId("nilaynilay@airasia.com");
+//        customerRepository.save(customer_1);
+//    }
 }
